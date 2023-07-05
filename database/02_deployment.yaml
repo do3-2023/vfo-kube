@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vfodb
+  namespace: db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: vfodb
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        name: vfodb
+    spec:
+      containers:
+        - env:
+            - name: "POSTGRES_DB"
+              value: "cars"
+            - name: "POSTGRES_USER"
+              value: "user"
+            - name: "POSTGRES_PASSWORD"
+              value: "password"
+          image: postgres
+          imagePullPolicy: IfNotPresent
+          name: vfodb
+      imagePullSecrets:
+        - name: regcred

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vfofront
+  namespace: front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: frontend
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        name: frontend
+    spec:
+      containers:
+        - image: ghcr.io/do3-2023/vfo-kube/front:latest
+          imagePullPolicy: Always
+          name: frontend
+      imagePullSecrets:
+        - name: ghcr-secret

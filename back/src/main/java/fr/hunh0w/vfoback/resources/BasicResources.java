@@ -19,7 +19,7 @@ public class BasicResources {
     @Path("/hello")
     @GET
     public Response getHello(){
-        return Response.ok("Hello World !").build();
+        return Response.ok("Hello World from API !").build();
     }
 
     @Path("/healthz")

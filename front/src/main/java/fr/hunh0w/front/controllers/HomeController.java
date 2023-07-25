@@ -33,9 +33,9 @@ public class HomeController {
     }
 
     @GetMapping("/healthz")
-    public ResponseEntity<Object> getHealth(){
+    public ResponseEntity<String> getHealth(){
         String url = "http://"+host_api+":8080/healthz";
-        ResponseEntity<Object> response = restTemplate.getForEntity(url, Object.class);
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
         if(response.getStatusCode() == HttpStatusCode.valueOf(200)) return response;
         return ResponseEntity.internalServerError().build();
     }

@@ -1,25 +1,28 @@
+# Automatic Deploy
+## Deploy all
+```bash
+chmod +x deploy_all.sh
+./deploy_all.sh
+```
 
+## To re-deploy all without re-building docker images
+```bash
+chmod +x deploy_all.sh
+./deploy_all.sh nobuild
+```
 
-## Deploy Database
-
+# Manually Deploy
+## Database
 ```bash
 kubectl apply -f database/
 ```
 
-## Deploy Backend
-
+## Backend app
 ```bash
-cd back/
-docker build -t ghcr.io/do3-2023/vfo-kube/back .
-docker push ghcr.io/do3-2023/vfo-kube/back
-kubectl apply -f infra/
+kubectl apply -f back/infra/
 ```
 
-## Deploy Frontend
-
+## Front app
 ```bash
-cd app-front/
-docker build -t ghcr.io/do3-2023/vfo-kube/front .
-docker push ghcr.io/do3-2023/vfo-kube/front
-kubectl apply -f infra/
+kubectl apply -f front/infra/
 ```

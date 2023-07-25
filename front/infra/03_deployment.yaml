@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontapp
+  namespace: front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: frontapp
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        name: frontapp
+    spec:
+      containers:
+        - env:
+            - name: "API_HOST"
+              value: "10.43.0.6"
+          image: ghcr.io/do3-2023/vfo-kube/front:latest
+          imagePullPolicy: Always
+          name: frontapp
+      imagePullSecrets:
+        - name: ghcr-secret

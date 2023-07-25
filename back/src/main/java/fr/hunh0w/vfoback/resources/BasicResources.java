@@ -24,11 +24,9 @@ public class BasicResources {
 
     @Path("/healthz")
     @GET
-    public Uni<Response> getHealth(){
-        Uni<Car> car = carRepository.getCar();
-        return car.map(carObj -> {
-            return Response.ok().build();
-        });
+    public Response getHealth(){
+        Car car = carRepository.getCar();
+        return Response.ok().build();
     }
 
 }

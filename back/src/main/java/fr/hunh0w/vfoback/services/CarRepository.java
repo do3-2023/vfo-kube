@@ -4,6 +4,7 @@ import fr.hunh0w.vfoback.entities.Car;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.ws.rs.core.Response;
 
+import java.util.List;
 import java.util.Random;
 
 @ApplicationScoped
@@ -11,8 +12,8 @@ public class CarRepository {
 
     Random rd = new Random();
 
-    public Car getCar(){
-        return Car.findAll().firstResult();
+    public List<Car> getCars(){
+        return Car.findAll().list();
     }
 
     public Response generateCar(){

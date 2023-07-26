@@ -1,3 +1,31 @@
+# Front Application Usage
+
+### To create and store a new random car:
+> GET /generatecar
+
+### To retrieve all stored cars:
+> GET /cars
+
+### To test http communication between front and back applications
+> GET /healthz
+
+### To get a "Hello world" from backend app
+> GET /
+
+# Back Application Usage
+
+### To create and store a new random car:
+> POST /api/v1/car  (without any content body)
+
+### To retrieve all stored cars:
+> GET /api/v1/car
+
+### To test database connection between back app and postgresql database
+> GET /healthz
+
+### To get a "Hello World"
+> GET /hello
+
 # K3D Installation
 ```bash
 wget -q -O - https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash

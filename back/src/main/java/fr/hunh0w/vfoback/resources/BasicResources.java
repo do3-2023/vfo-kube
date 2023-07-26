@@ -9,6 +9,8 @@ import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.core.Response;
 
+import java.util.List;
+
 @ApplicationScoped
 @Path("/")
 public class BasicResources {
@@ -25,7 +27,7 @@ public class BasicResources {
     @Path("/healthz")
     @GET
     public Response getHealth(){
-        Car car = carRepository.getCar();
+        List<Car> car = carRepository.getCars();
         return Response.ok().build();
     }
 

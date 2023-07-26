@@ -40,4 +40,18 @@ public class HomeController {
         return ResponseEntity.internalServerError().build();
     }
 
+    @GetMapping("/generatecar")
+    public ResponseEntity<String> generatecar(){
+        String url = "http://"+host_api+":8080/api/v1/car";
+        ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class);
+        return response;
+    }
+
+    @GetMapping("cars")
+    public ResponseEntity<String> getCar() {
+        String url = "http://"+host_api+":8080/api/v1/car";
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+        return response;
+    }
+
 }

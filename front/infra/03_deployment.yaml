@@ -23,7 +23,7 @@ spec:
             - name: "API_HOST"
               value: "10.43.0.6"
           image: ghcr.io/do3-2023/vfo-kube/front:latest
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           name: frontapp
       imagePullSecrets:
         - name: ghcr-secret

@@ -1,3 +1,11 @@
+# K3D Installation
+```bash
+wget -q -O - https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
+```
+```bash
+k3d cluster create <clustername>
+```
+
 # Automatic Deploy
 ## Deploy all
 ```bash

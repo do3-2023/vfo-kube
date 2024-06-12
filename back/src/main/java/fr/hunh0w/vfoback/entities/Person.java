@@ -5,10 +5,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "car")
-public class Car extends PanacheEntity {
+@Table(name = "person")
+public class Person extends PanacheEntity {
 
-    public String name;
-    public String color;
+    public String last_name;
+    public String phone_number;
+    public String location;
 
 }

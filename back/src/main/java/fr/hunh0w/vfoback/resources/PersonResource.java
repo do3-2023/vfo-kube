@@ -30,7 +30,7 @@ public class PersonResource {
     @Transactional
     @Path("/person")
     public Response createPerson(){
-        return personRepository.generatePerson();
+        return Response.status(Response.Status.FORBIDDEN).build();
     }
 
 }

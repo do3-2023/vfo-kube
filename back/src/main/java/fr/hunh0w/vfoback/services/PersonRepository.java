@@ -3,7 +3,6 @@ package fr.hunh0w.vfoback.services;
 import fr.hunh0w.vfoback.entities.Person;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.ws.rs.core.Response;
-import org.jose4j.json.internal.json_simple.JSONObject;
 
 import java.util.List;
 import java.util.Random;
@@ -13,13 +12,8 @@ public class PersonRepository {
 
     Random rd = new Random();
 
-    public List<JSONObject> getPersons(){
-        return Person.findAll().stream().map(person -> {
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("last_name", ((Person)person).last_name);
-            jsonObject.put("phone_number", ((Person)person).phone_number);
-            return jsonObject;
-        }).toList();
+    public List<Person> getPersons(){
+        return Person.findAll().list();
     }
 
     public Response generatePerson(){

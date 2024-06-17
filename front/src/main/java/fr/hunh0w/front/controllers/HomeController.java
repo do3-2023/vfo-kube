@@ -41,14 +41,14 @@ public class HomeController {
     }
 
     @GetMapping("/generateperson")
-    public ResponseEntity<String> generatecar(){
+    public ResponseEntity<String> generatePerson(){
         String url = "http://"+host_api+":8080/api/v1/person";
         ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class);
         return response;
     }
 
     @GetMapping("person")
-    public ResponseEntity<String> getCar() {
+    public ResponseEntity<String> getPerson() {
         String url = "http://"+host_api+":8080/api/v1/person";
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
         return response;

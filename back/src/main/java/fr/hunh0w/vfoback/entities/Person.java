@@ -14,5 +14,4 @@ public class Person extends PanacheEntity {
 
     @Nullable
     public String location;
-
 }

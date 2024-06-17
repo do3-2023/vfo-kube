@@ -9,6 +9,7 @@ import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.core.Response;
+import org.jose4j.json.internal.json_simple.JSONObject;
 
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class PersonResource {
     @GET
     @Path("/person")
     public Response getPerson(){
-        List<Person> persons = personRepository.getPersons();
+        List<JSONObject> persons = personRepository.getPersons();
         return Response.ok(persons).build();
     }
 

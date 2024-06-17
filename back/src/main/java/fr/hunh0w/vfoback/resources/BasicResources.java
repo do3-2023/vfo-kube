@@ -8,6 +8,7 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.core.Response;
+import org.jose4j.json.internal.json_simple.JSONObject;
 
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class BasicResources {
     @Path("/healthz")
     @GET
     public Response getHealth(){
-        List<Person> persons = personRepository.getPersons();
+        List<JSONObject> persons = personRepository.getPersons();
         return Response.ok().build();
     }
 

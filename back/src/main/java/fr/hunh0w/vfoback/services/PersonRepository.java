@@ -20,7 +20,7 @@ public class PersonRepository {
         Person person = new Person();
         person.last_name = "Zglivendu-"+randomDigits(16);
         person.phone_number = "+33"+randomDigits(9);
-        person.location = "Paris";
+        //person.location = "Paris";
         person.persist();
         return Response.ok(person).status(Response.Status.CREATED).build();
     }

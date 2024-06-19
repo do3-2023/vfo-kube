@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'io.quarkus'
+    id "org.teavm" version "0.10.0"
 }
 
 repositories {
@@ -20,6 +21,7 @@ dependencies {
     implementation 'io.quarkus:quarkus-reactive-pg-client'
     implementation 'io.quarkus:quarkus-smallrye-jwt-build'
     implementation 'io.quarkus:quarkus-arc'
+    implementation teavm.libs.jso
     testImplementation 'io.quarkus:quarkus-junit5'
     testImplementation 'io.rest-assured:rest-assured'
 }
@@ -42,4 +44,10 @@ compileJava {
 
 compileTestJava {
     options.encoding = 'UTF-8'
+}
+
+teavm {
+    wasm {
+        mainClass = "fr.hunh0w.vfoback.Main"
+    }
 }

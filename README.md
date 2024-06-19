@@ -25,9 +25,15 @@ Accessible sur les branches:
 
 ## WASM
 Pour le WASM, j'ai essayé plusieurs outils:
+
 - bytecoder
 - cheerpj
 - TeaVM
+- wasmedge / wasmer
+
+Aucun des outils n'a fonctionné pour mon application Quarkus, je pense que si j'avais choisi du Java sans framework ça aurait été bien plus simple et ça aurait certainement marché, mais même en utilisant la tâche de native build avec Quarkus, j'obtiens un binaire que ne j'arrive pas à convertir en wasm avec tous les outils que j'ai trouvé.
+
+Sur la branche "wasm" j'ai commit l'une de mes tentatives avec TeaVM qui était la solution la plus prometeuse pour moi
 
 # Documentation
 # Front Application Usage

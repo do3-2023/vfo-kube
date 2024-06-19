@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        image: ["back2", "front"]
+        image: ["back", "front"]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -31,4 +31,4 @@ jobs:
           context: ./${{ matrix.image }}
           file: ./${{ matrix.image }}/Dockerfile
           push: true
-          tags: ${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ github.repository }}/${{ matrix.image }}:${{ github.ref_name }}
+          tags: ${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ github.repository }}/${{ matrix.image }}v2:${{ github.ref_name }}

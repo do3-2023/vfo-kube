@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        image: ["back4", "front"]
+        image: ["back", "front"]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
